@@ -8,8 +8,9 @@ class Bank
 {
 private:
     std::string Bankname;
+    Accounts BankAccounts;
 public:
-    Bank(std::string givenName):Bankname(givenName){};
+    Bank(std::string givenName, Accounts bankAccounts):Bankname(givenName),BankAccounts(bankAccounts){};
     //~Bank();
 };
 
