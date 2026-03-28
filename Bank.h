@@ -1,5 +1,4 @@
-#define BANK_H
-#ifdef BANK_H
+#pragma once
 
 #include "Account.h"
 #include "Accounts.h"
@@ -13,5 +12,3 @@ public:
     Bank(std::string givenName, Accounts bankAccounts):Bankname(givenName),BankAccounts(bankAccounts){};
     //~Bank();
 };
-
-#endif

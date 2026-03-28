@@ -1,3 +1,5 @@
+#pragma once
+
 #include "Account.h"
 #include <string>
 
@@ -9,7 +11,6 @@ private:
     bool hasAccount;
 public:
     Person(std::string Name):name(Name), hasAccount(false){};
-    //~Person();
     std::string getName(){return this->name;};
     Account getAccount(){return this->account;};
     bool HaveAccount(){return this->hasAccount;};

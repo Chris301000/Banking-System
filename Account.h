@@ -1,5 +1,4 @@
-#define ACCOUNT_H
-#ifdef ACCOUNT_H
+#pragma once
 
 #include <string>
 #include <random>
@@ -16,11 +15,27 @@ public:
     Account(){};
     Account(std::string givenName,std::string givenPassword,std::string givenUsername, int GivenNum, int given_four_digit_num):accountName(givenName),accountPassword(givenPassword)
     ,accountUsername(givenUsername),accountNum(GivenNum),four_digit_num(given_four_digit_num){};
-   // ~Account();
-    // std::string getAccountName(std::string name)
-    // {
-
-    // }
+    // ~Account();
+    Account operator=(const Account& account)
+   {
+    if(this != &account)
+    {
+        this->accountName = account.accountName;
+        this->accountNum = account.accountNum;
+        this->accountPassword = account.accountPassword;
+        this->accountUsername = account.accountUsername;
+    }
+    return *this;
+   }
+   bool operator==(const Account& account) const
+   {
+        bool is_equal = false;
+        if((this->accountName == account.accountName) && (this->accountNum == account.accountNum) && (this->accountPassword == account.accountPassword) && (this->accountUsername == account.accountUsername) && (this->four_digit_num == account.four_digit_num))
+        {
+            is_equal = true;
+        }
+    return is_equal;
+   }
     void setAccountName(std::string account_name){this->accountName = account_name;};
     void setAccountPassword(std::string account_password){this->accountPassword = account_password;};
     void setAccountUsername(std::string account_username){this->accountUsername = account_username;};
@@ -32,6 +47,3 @@ public:
     int getAccountNum(){return this->accountNum;};
     int get_four_digit_num(){return this->four_digit_num;};
 };
-
-
-#endif

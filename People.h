@@ -1,6 +1,6 @@
-#define PEOPLE_H
-#ifdef PEOPLE_H
+#pragma once
 
+#include <iostream>
 #include "Person.h"
 #include <vector>
 #include <algorithm>
@@ -11,7 +11,7 @@ private:
     std::vector<Person> peopleList;
     int numPeople = 0;
 public:
-    People();
+    People(){};
     //~People();
     void addPerson(Person person)
     {
@@ -26,6 +26,7 @@ public:
             if(name == i->getName())
             {
                 found = true;
+
                 peopleList.erase(i);
             }
         }
@@ -48,7 +49,7 @@ public:
     }
     int numOfPeople(){return numPeople;};
     std::vector<Person> returnVector(){return peopleList;};
-    Person returnAtIndex(int index){return peopleList.at(index);};
+    Person returnAtIndex(const int index){return peopleList.at(index);};
     Person returnAtName(std::string name)
     {
         for(int i = 0;i < peopleList.size(); i++)
@@ -58,21 +59,31 @@ public:
                 return peopleList.at(i);
             }
         }
+        return peopleList.at(peopleList.size());
     }
     bool findPerson(const std::string given_name, int &index)
     {
         bool found = false;
-        auto iterator = std::find(peopleList.begin(), peopleList.end(), given_name);
+        auto iterator = std::find_if(peopleList.begin(), peopleList.end(), [&](Person &p)
+        {
+            return p.getName() == given_name;
+        });
+
         if(iterator != peopleList.end())
         {
             found = true;
+            index = std::distance(peopleList.begin(), iterator);
         }
         return found;
     }
     bool findPerson(const std::string given_name)
     {
         bool found = false;
-        auto iterator = std::find(peopleList.begin(), peopleList.end(), given_name);
+        auto iterator = std::find_if(peopleList.begin(), peopleList.end(), [&](Person &p)
+        {
+            return p.getName() == given_name;
+        });
+
         if(iterator != peopleList.end())
         {
             found = true;
@@ -80,5 +91,3 @@ public:
         return found;
     }
 };
-
-#endif
