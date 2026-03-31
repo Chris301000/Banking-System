@@ -1,5 +1,4 @@
-#define ACCOUNTS_H
-#ifdef ACCOUNTS_H
+#pragma once
 
 #include <iostream>
 #include "Account.h"
@@ -20,5 +19,3 @@ public:
     bool findPerson(const std::string);
     Account returnAtName(const std::string);
 };
-
-#endif

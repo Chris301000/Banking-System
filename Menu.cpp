@@ -18,9 +18,14 @@ void Menu::Delete_person_display(People& people, Accounts& accounts)
     std::cout << "Who would you like to delete, please input a valid name:" << std::endl;
     std::string find;
     int index;
+    std::cin >> find;
     bool exists = people.findPerson(find, index);
     if(exists)
     {
+        // for(int i = 0; i < accounts.getNumAccounts(); i++)
+        // {
+
+        // }
         Account account = people.returnAtIndex(index).getAccount();
         accounts.DeleteFromAccounts(account);
         people.deletePerson(find);
@@ -52,13 +57,9 @@ void Menu::Make_Account_Display(People& people, Accounts& accounts)
         std::cout << "Please make a 4 digit pin: " << std::endl;
         std::cin >> four_digit_num;
         account_number = rand();
-        people.returnAtIndex(index).getAccount().setAccountFourDigitSum(four_digit_num);
-        people.returnAtIndex(index).getAccount().setAccountName(people.returnAtIndex(index).getName());
-        people.returnAtIndex(index).getAccount().setAccountNum(account_number);
-        people.returnAtIndex(index).getAccount().setAccountPassword(password);
-        people.returnAtIndex(index).getAccount().setAccountUsername(username);
-        people.returnAtIndex(index).setHasAccount();
-        accounts.AddToAccounts(people.returnAtIndex(index).getAccount());
+        Account account(user_given_name,password,username, account_number, four_digit_num);
+        people.returnAtIndex(index).getAccount() = account;
+        accounts.AddToAccounts(account);
     }
     else
     {

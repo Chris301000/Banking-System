@@ -27,7 +27,7 @@ int main()
         }
         else if(option == 3)
         {
-            menu.Delete_person_display(people);
+            menu.Delete_person_display(people, accounts);
         }
         else if(option == 4)
         {

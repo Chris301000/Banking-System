@@ -49,8 +49,8 @@ public:
     }
     int numOfPeople(){return numPeople;};
     std::vector<Person> returnVector(){return peopleList;};
-    Person returnAtIndex(const int index){return peopleList.at(index);};
-    Person returnAtName(std::string name)
+    Person& returnAtIndex(const int index){return peopleList.at(index);};
+    Person& returnAtName(std::string name)
     {
         for(int i = 0;i < peopleList.size(); i++)
         {

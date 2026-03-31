@@ -14,6 +14,7 @@ void Accounts::DeleteFromAccounts(Account& account)
             return a == account; 
         }),List_Of_Accounts.end()
     );
+    this->Num_of_Accounts--;
 }
 void Accounts::print_AccountsList()
 {

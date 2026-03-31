@@ -12,7 +12,7 @@ private:
 public:
     Person(std::string Name):name(Name), hasAccount(false){};
     std::string getName(){return this->name;};
-    Account getAccount(){return this->account;};
+    Account& getAccount(){return this->account;};
     bool HaveAccount(){return this->hasAccount;};
     void setHasAccount(){hasAccount = true;};
 };

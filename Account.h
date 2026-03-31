@@ -29,12 +29,7 @@ public:
    }
    bool operator==(const Account& account) const
    {
-        bool is_equal = false;
-        if((this->accountName == account.accountName) && (this->accountNum == account.accountNum) && (this->accountPassword == account.accountPassword) && (this->accountUsername == account.accountUsername) && (this->four_digit_num == account.four_digit_num))
-        {
-            is_equal = true;
-        }
-    return is_equal;
+    return this->accountNum == account.accountNum;
    }
     void setAccountName(std::string account_name){this->accountName = account_name;};
     void setAccountPassword(std::string account_password){this->accountPassword = account_password;};
